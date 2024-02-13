@@ -189,7 +189,7 @@ variable "tags" {
 ########################
 
 variable "subnet_id" {
-  description = "subnet ID"
+  description = "The ID of the subnet where the EC2 instance will be launched."
   type        = string
 }
 
@@ -640,18 +640,18 @@ variable "preferred_backup_window" {
 
 variable "name" {
   type        = string
-  description = ""
+  description = "The name of the DB cluster parameter group."
   default     = "rds-cluster-pg"
 }
 
 variable "family" {
   type        = string
-  description = ""
+  description = "The family of the DB cluster parameter group."
   default     = "aurora5.6"
 }
 
 variable "cluster_instance_identifier" {
   type = string
-  description = "Name of the cluster instances "
+  description = "The identifier of the cluster instances."
   default = "aurora-cluster-instance-demo"
 }

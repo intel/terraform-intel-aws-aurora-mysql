@@ -1,105 +1,105 @@
 output "name" {
-  description = "aws_rds_cluster_parameter_group name."
+  description = "The name of the DB cluster parameter group."
   value       = aws_rds_cluster_parameter_group.rds.name 
 }
 
 output "family" {
-  description = "aws_rds_cluster_parameter_group name."
+  description = "The family of the DB cluster parameter group."
   value       = aws_rds_cluster_parameter_group.rds.family
 }
 
 output "count" {
-  description = "count ."
+  description = "To make multiple instances and join them all to the same RDS Cluster."
   value       = length(aws_rds_cluster_instance.cluster_instances)
 }
 
 output "identifier" {
-  description = "identifier."
+  description = "Identifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier."
   value       = aws_rds_cluster_instance.cluster_instances[0].identifier
 }
 
 output "identifier1" {
-  description = "identifier."
+  description = "Identifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier."
   value       = aws_rds_cluster_instance.cluster_instances[1].identifier
 }
 
 output "cluster_identifier" {
-  description = "count ."
+  description = "Identifier of the aws_rds_cluster in which to launch this instance."
   value       = aws_rds_cluster_instance.cluster_instances[0].cluster_identifier
 }
 
 output "cluster_identifier1" {
-  description = "count ."
+  description = "Identifier of the aws_rds_cluster in which to launch this instance."
   value       = aws_rds_cluster_instance.cluster_instances[1].cluster_identifier
 }
 
 output "instance_class" {
-  description = "count ."
+  description = "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines."
   value       = aws_rds_cluster_instance.cluster_instances[0].instance_class
 }
 
 output "engine" {
-  description = "engine."
+  description = "Database engine version for AWS database instance."
   value       = aws_rds_cluster_instance.cluster_instances[0].engine
 }
 
 output "engine_version" {
-  description = "engine_version."
+  description = "Database engine version for AWS database instance."
   value       = aws_rds_cluster_instance.cluster_instances[0].engine_version
 }
 
 output "cluster_identifier_default" {
-  description = "cluster_identifier ."
+  description = "If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of."
   value       = aws_rds_cluster.default.cluster_identifier 
 }
 
 output "engine_default" {
-  description = "Engine"
+  description = "Default engine to use."
   value       = aws_rds_cluster.default.engine 
 }
 
 output "engine_version_default" {
-  description = "Engine Version"
+  description = "Default engine version to use."
   value       = aws_rds_cluster.default.engine_version
 }
 
 output "availability_zones" {
-  description = "availability zones"
+  description = "Name of the Availability Zone the DB instance is located in."
   value       = aws_rds_cluster.default.availability_zones
 }
 
 output "database_name" {
-  description = "Database instance name."
+  description = "Contains the name of the initial database of this instance that was provided at create time."
   value       = aws_rds_cluster.default.database_name
 }
 
 output "backup_retention_period" {
-  description = "backup_retention_period."
+  description = "Specifies the number of days for which automatic DB snapshots are retained."
   value       = aws_rds_cluster.default.backup_retention_period 
 }
 
 output "preferred_backup_window" {
-  description = "preferred_backup_window."
+  description = "Specifies the daily time range during which automated backups are created."
   value       = aws_rds_cluster.default.preferred_backup_window
 }
 
 output "skip_final_snapshot" {
-  description = "skip_final_snapshot."
+  description = "Flag to indicate whether a final snapshot will be skipped upon database termination."
   value       = aws_rds_cluster.default.skip_final_snapshot
 }
 
 output "dbi_resource_id" {
-  description = "dbi_resource_id."
+  description = "Region-unique, immutable identifier for the DB instance."
   value       = aws_rds_cluster_instance.cluster_instances[0].dbi_resource_id
 }
 
 output "dbi_resource_id1" {
-  description = "dbi_resource_id."
+  description = "Region-unique, immutable identifier for the DB instance."
   value       = aws_rds_cluster_instance.cluster_instances[1].dbi_resource_id
 }
 
 output "kms_key_id" {
-  description = "kms_key_id."
+  description = "The ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN."
   value       = aws_rds_cluster.default.kms_key_id
 }
 

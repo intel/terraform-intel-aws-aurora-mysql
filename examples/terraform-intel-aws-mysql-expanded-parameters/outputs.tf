@@ -1,21 +1,16 @@
-#output "mysql_address" {
-#  description = "MySQL instance hostname"
-#  value       = module.optimized-aurora-server.db_hostname
-#}
-
 output "mysql_port" {
   description = "MySQL instance port"
   value       = module.optimized-aurora-server.db_port
 }
 
 output "mysql_endpoint" {
-  value       = module.optimized-aurora-server.db_endpoint
   description = "Connection endpoint for the MySQL instance that has been created"
+  value       = module.optimized-aurora-server.db_endpoint
 }
 
 output "mysql_engine" {
-  value       = module.optimized-aurora-server.db_engine
   description = "Database instance engine that was configured."
+  value       = module.optimized-aurora-server.db_engine
 }
 
 output "instance_class" {
@@ -50,77 +45,72 @@ output "database_name" {
 
 
 output "name" {
-  description = "aws_rds_cluster_parameter_group name."
+  description = "The name of the DB cluster parameter group."
   value       = module.optimized-aurora-server.name 
 }
 
 output "family" {
-  description = "aws_rds_cluster_parameter_group name."
+  description = "The family of the DB cluster parameter group."
   value       = module.optimized-aurora-server.family
 }
 
 output "count" {
-  description = "count ."
+  description = "To make multiple instances and join them all to the same RDS Cluster."
   value       = module.optimized-aurora-server.count 
 }
 
 output "identifier" {
-  description = "identifier."
+  description = "Identifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier."
   value       = module.optimized-aurora-server.identifier
 }
 
 output "cluster_identifier" {
-  description = "count ."
+  description = "Identifier of the aws_rds_cluster in which to launch this instance."
   value       = module.optimized-aurora-server.cluster_identifier
 }
 
 output "cluster_identifier_default" {
-  description = "cluster_identifier ."
+  description = "If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of."
   value       = module.optimized-aurora-server.cluster_identifier 
 }
 
 output "engine_default" {
-  description = "Engine"
+  description = "Default engine to use."
   value       = module.optimized-aurora-server.engine 
 }
 
 
 output "engine" {
-  description = "Engine"
+  description = "Database engine version for AWS database instance."
   value       = module.optimized-aurora-server.engine 
 }
 
 output "engine_version" {
-  description = "Engine Version"
+  description = "Database engine version for AWS database instance."
   value       = module.optimized-aurora-server.engine_version
 }
 
 output "engine_version_default" {
-  description = "Engine Version"
+  description = "Default engine version to use."
   value       = module.optimized-aurora-server.engine_version
 }
 
 output "availability_zones" {
-  description = "availability zones"
+  description = "Name of the Availability Zone the DB instance is located in."
   value       = module.optimized-aurora-server.availability_zones
 }
 
 output "backup_retention_period" {
-  description = "backup_retention_period."
+  description = "Specifies the number of days for which automatic DB snapshots are retained."
   value       = module.optimized-aurora-server.backup_retention_period 
 }
 
 output "preferred_backup_window" {
-  description = "preferred_backup_window."
+  description = "Specifies the daily time range during which automated backups are created."
   value       = module.optimized-aurora-server.preferred_backup_window
 }
 
 output "skip_final_snapshot" {
-  description = "skip_final_snapshot."
+  description = "Flag to indicate whether a final snapshot will be skipped upon database termination."
   value       = module.optimized-aurora-server.skip_final_snapshot
 }
-
-#output "aurora_lab_mode" {
-#  description = ""
-#  value = module.optimized-aurora-server.aurora_lab_mode
-#}

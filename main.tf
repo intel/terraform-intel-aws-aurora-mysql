@@ -26,7 +26,6 @@ resource "aws_rds_cluster_parameter_group" "rds" {
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = 2
-  #identifier         = "aurora-cluster-demo-${count.index}"
   identifier = "${var.cluster_instance_identifier}-${count.index}"
   cluster_identifier = aws_rds_cluster.default.id
   instance_class     = var.instance_class

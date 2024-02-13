@@ -8,7 +8,7 @@
 
 ## AWS Aurora MySQL Module - Read Replica Example
 
-Configuration in this examples creates an Amazon Aurora instance for MySQL and creates a read replica within the same region. The instance is created on an Intel Icelake instance M6i.xlarge by default. The instance is pre-configured with parameters within the database parameter group that is optimized for Intel architecture. The goal of this module is to get you started with a database configured to run best on Intel architecture.
+Configuration in this examples creates an Amazon Aurora instance for MySQL and creates a read replica within the same region. The instance is created on an Intel Icelake instance R6i.large by default. The instance is pre-configured with parameters within the database parameter group that is optimized for Intel architecture. The goal of this module is to get you started with a database configured to run best on Intel architecture.
 
 As you configure your application's environment, choose the configurations for your infrastructure that matches your application's requirements.
 
@@ -18,15 +18,19 @@ The MySQL Optimizations were based off [Intel Xeon Tunning guides](<https://www.
 
 
 
-By default, you will only have to pass three variables
+By default, you will only have to pass the following variables
 ```hcl
 db_password
-rds_identifier
-vpc_id
 ```
 
 variables.tf
 ```hcl
+variable "region" {
+  description = "Target AWS region to deploy workloads in."
+  type        = string
+  default     = "us-east-1"
+}
+
 variable "db_password" {
   description = "Password for the master database user."
   type        = string
@@ -37,21 +41,29 @@ variable "db_password" {
 main.tf
 ```hcl
 module "optimized-mysql-server" {
-  source         = "intel/aws-mysql/intel"
-  db_password    = var.db_password
-  rds_identifier =  "<NAME-FOR-RDS-INSTANCE>"
-  db_parameters = {
-    mysql = {
-      innodb_open_files = {
-        apply_method = "pending-reboot"
-        value        = "3000"
-      }
-    }
-  }
-  # Update the vpc_id below for the VPC that this module will use. Find the vpc-id in your AWS account
+  source = "intel/aws-aurora-mysql/intel"
+  db_password = var.db_password
+  subnet_id   = "<ENTER YOUR SUBNET ID>"
+
+  # Update the vpc_id below for the VPC that this module will use. Find the default vpc-id in your AWS account
   # from the AWS console or using CLI commands. In your AWS account, the vpc-id is represented as "vpc-",
   # followed by a set of alphanumeric characters. One sample representation of a vpc-id is vpc-0a6734z932p20c2m4
   vpc_id = "<YOUR-VPC-ID-HERE>"
+}
+
+module "optimized-mysql-server-read-replica" {
+  source      = "intel/aws-aurora-mysql/intel"
+  db_password = var.db_password
+  subnet_id   = "<ENTER YOUR SUBNET ID>"
+  cluster_identifier = "aurora-cluster-demo-replica" 
+  cluster_instance_identifier = "aurora-cluster-instance-demo-replica" 
+
+  # Update the vpc-id below. Use the same vpc-id as the one used in the prior module.
+  vpc_id = "<YOUR-VPC-ID-HERE>"
+  db_replicate_source_db = module.optimized-mysql-server.dbi_resource_id
+  kms_key_id          = module.optimized-mysql-server.kms_key_id
+  skip_final_snapshot = true
+  create_subnet_group = false
 }
 
 ```
