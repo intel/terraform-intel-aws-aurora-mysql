@@ -20,4 +20,4 @@ Parameter: instance_class
 
 Allowed Types :  
 
-- **Memory Optimized:** db.r5.large, db.r5.xlarge, db.r5.2xlarge, db.r5.4xlarge, db.r5.8xlarge, db.r5.12xlarge, db.r5.16large, db.r5.24large, db.r6g.large, db.r6g.xlarge, db.r6g.2xlarge, db.r6g.4xlarge, db.r6g.8xlarge, db.r6g.12xlarge, db.r6g.16xlarge, db.r6i.large, db.r6i.xlarge, db.r6i.2xlarge, db.r6i.4xlarge, db.r6i.8xlarge, db.r6i.12xlarge, db.r6i.16xlarge, db.r6i.24xlarge, db.r6i.32xlarge, db.r6i.16xlarge, db.r7g.large, db.r7g.xlarge, db.r7g.2xlarge, db.r7g.4xlarge, db.r7g.8xlarge, db.r7g.12xlarge, db.r7g.16xlarge, db.x2g.large, db.x2g.xlarge, db.x2g.2xlarge, db.x2g.4xlarge, db.x2g.8xlarge, db.x2g.12xlarge, db.x2g.16xlarge
+- **Memory Optimized:** db.r6i.large, db.r6i.xlarge, db.r6i.2xlarge, db.r6i.4xlarge, db.r6i.8xlarge, db.r6i.12xlarge, db.r6i.16xlarge, db.r6i.24xlarge, db.r6i.32xlarge, db.r6i.16xlarge
