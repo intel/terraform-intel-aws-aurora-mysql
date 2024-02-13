@@ -5,9 +5,7 @@
 # Adjust this text to match module deployment and instance recommendations.
 
 # See policies.md, we recommend  Intel Xeon 3rd Generation Scalable processors (code-named Ice Lake)
-# General Purpose: NOT AVAILABLE (db.m6i.large, db.m6i.xlarge, db.m6i.2xlarge, db.m6i.4xlarge, db.m6i.8xlarge, db.m6i.12xlarge, db.m6i.16xlarge, db.m6i.24xlarge, db.m6i.32xlarge) - REMOVE
 # Memory Optimized: db.r6i.large, db.r6i.xlarge, db.r6i.2xlarge, db.r6i.4xlarge, db.r6i.8xlarge, db.r6i.12xlarge, db.r6i.16xlarge, db.r6i.24xlarge, db.r6i.32xlarge
-# 
 
 variable "instance_class" {
   description = "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines"
@@ -443,7 +441,7 @@ variable "db_domain_iam_role" {
 }
 
 variable "db_custom_iam_profile" {
-  description = ("The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.")
+  description = "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance."
   type        = string
   default     = null
 }

@@ -109,17 +109,17 @@ output "db_endpoint" {
 }
 
 output "db_port" {
-  description = "Database instance port."
+  description = "The port on which the RDS cluster is accessible."
   value       = aws_rds_cluster.default.port
 }
 
 output "db_instance_id" {
-  description = "RDS instance ID."
+  description = "The identifier of the RDS cluster instance."
   value       = aws_rds_cluster.default.id
 }
 
 output "db_engine" {
-  description = "Database instance engine that was configured."
+  description = "The database engine used by the RDS cluster."
   value       = aws_rds_cluster.default.engine
 }
 
