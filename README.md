@@ -19,7 +19,7 @@ The MySQL Optimizations were based off [Intel Xeon Tuning Guide](<https://www.in
 
 #### [Choosing Amazon EC2 Memory-Optimized R6i Instances over R5n Instances Improves Decision Support Performance by up to 1.36x](https://www.intel.com/content/www/us/en/content-details/763185/choosing-amazon-ec2-memory-optimized-r6i-instances-over-r5n-instances-improves-decision-support-performance-by-up-to-1-36x.html?wapkw=r6i)
 
-![Image Alt text](images\aws-aurora-1.png)
+![Large R6i instances executed queries faster ](images/aws-aurora-1.png)
 
 </center>
 
