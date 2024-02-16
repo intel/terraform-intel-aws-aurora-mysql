@@ -236,19 +236,6 @@ variable "db_parameter_group_family" {
   default     = "mysql8.0"
 }
 
-variable "db_name" {
-  description = "Name of the database that will be created on the RDS instance. If this is specified then a database will be created as a part of the instance provisioning process."
-  type        = string
-  default     = null
-}
-
-variable "db_username" {
-  description = "Username for the master database user."
-  type        = string
-  sensitive   = false
-  default     = null
-}
-
 variable "db_port" {
   description = "The port on which the DB accepts connections."
   type        = number
@@ -278,12 +265,6 @@ variable "multi_az" {
   description = "Flag that specifies if the RDS instance is multi_az."
   type        = bool
   default     = true
-}
-
-variable "db_tags" {
-  description = "Map of tags to apply to the database instance."
-  type        = map(string)
-  default     = null
 }
 
 variable "security_group_ids" {
@@ -410,12 +391,6 @@ variable "db_performance_insights" {
   default     = false
 }
 
-variable "db_performance_insights_kms_key_id" {
-  description = "The ARN for the KMS key to encrypt Performance Insights data."
-  type        = string
-  default     = null
-}
-
 variable "db_performance_retention_period" {
   description = "Amount of time in days to retain Performance Insights data.Valid values are 7, 731 (2 years) or a multiple of 31."
   type        = string
@@ -498,16 +473,6 @@ variable "db_use_latest_restore_time" {
   description = "Flag that indicates whether the DB instance is restored from the latest backup time."
   type        = bool
   default     = null
-}
-
-variable "db_backup_retention_period" {
-  description = "The days to retain backups for. Must be between 0 and 35. Must be greater than 0 if the database is used as a source for a Read Replica."
-  type        = number
-  validation {
-    condition     = var.db_backup_retention_period >= 0 && var.db_backup_retention_period <= 35
-    error_message = "The db_backup_retention_period must be between 0 and 35."
-  }
-  default = 7
 }
 
 variable "db_backup_window" {
