@@ -15,7 +15,7 @@ variable "instance_class" {
 
 variable "db_parameters" {
   type = object({
-    mysql = object({
+    aurora-mysql = object({
       table_open_cache = optional(object({
         value        = optional(string, "8000")
         apply_method = optional(string, "immediate")
@@ -81,10 +81,6 @@ variable "db_parameters" {
         value        = optional(string, "0")
         apply_method = optional(string, "immediate")
       }))
-      innodb_flush_log_at_trx_commit = optional(object({
-        value        = optional(string, "0")
-        apply_method = optional(string, "immediate")
-      }))
       join_buffer_size = optional(object({
         value        = optional(string, 32 * 1024)
         apply_method = optional(string, "immediate")
@@ -125,10 +121,15 @@ variable "db_parameters" {
         value        = optional(string, "0")
         apply_method = optional(string, "immediate")
       }))
+            /* Cannot be Modified (AWS doesnt allow to modify this parameter)
+      innodb_flush_log_at_trx_commit = optional(object({
+        value        = optional(string, "0")
+        apply_method = optional(string, "immediate")
+      }))*/
     })
   })
   default = {
-    mysql = {
+    aurora-mysql = {
       back_log                       = {}
       character_set_server           = {}
       collation_server               = {}
@@ -140,7 +141,6 @@ variable "db_parameters" {
       innodb_change_buffering        = {}
       innodb_checksum_algorithm      = {}
       innodb_file_per_table          = {}
-      innodb_flush_log_at_trx_commit = {}
       innodb_flush_neighbors         = {}
       innodb_io_capacity             = {}
       innodb_io_capacity_max         = {}
@@ -169,6 +169,7 @@ variable "db_parameters" {
       table_open_cache               = {}
       table_open_cache_instances     = {}
       transaction_isolation          = {}
+      //innodb_flush_log_at_trx_commit = {}  Cannot be modified
     }
   }
   description = "Intel Cloud optimizations for Xeon processors"
@@ -227,7 +228,7 @@ variable "db_subnet_group_tag" {
 variable "db_parameter_group_name" {
   description = "Name for the RDS database parameter group."
   type        = string
-  default     = "mysql"
+  default     = "aurora-mysql"
 }
 
 variable "db_parameter_group_family" {
