@@ -10,15 +10,6 @@ module "optimized-aurora-server" {
   db_password    = var.db_password
   
   subnet_id   = "<ENTER YOUR SUBNET ID>"
-  db_parameters = {
-    mysql = {
-      aurora_lab_mode = {
-        apply_method = "static"
-        value        = "0"
-      }
-      # Optional to add another parameter: refer to aws documentation and console 
-    }
-  }
   # To find out what the allowed values are refer to the aws console parameter group
   # Update the vpc_id below for the VPC that this module will use. Find the vpc-id in your AWS account
   # from the AWS console or using CLI commands. In your AWS account, the vpc-id is represented as "vpc-",

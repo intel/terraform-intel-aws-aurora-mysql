@@ -121,11 +121,7 @@ variable "db_parameters" {
         value        = optional(string, "0")
         apply_method = optional(string, "immediate")
       }))
-<<<<<<< HEAD
-                  /* Cannot be Modified (AWS doesnt allow to modify this parameter)
-=======
             /* Cannot be Modified (AWS doesnt allow to modify this parameter)
->>>>>>> 3a1f046135794e59be00d43c8fd1ddd60798a572
       innodb_flush_log_at_trx_commit = optional(object({
         value        = optional(string, "0")
         apply_method = optional(string, "immediate")
