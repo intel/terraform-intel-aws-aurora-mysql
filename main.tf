@@ -16,6 +16,7 @@ resource "aws_rds_cluster_parameter_group" "rds" {
     content {
       name         = parameter.key
       value        = parameter.value.value
+      apply_method = parameter.value.apply_method
     }
   }
 
