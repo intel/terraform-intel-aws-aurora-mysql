@@ -32,7 +32,7 @@ variable "db_parameters" {
         value        = optional(string, "1500")
         apply_method = optional(string, "pending-reboot")
       }))
-      
+
       performance_schema = optional(object({
         value        = optional(string, "0")
         apply_method = optional(string, "pending-reboot")
@@ -121,7 +121,7 @@ variable "db_parameters" {
         value        = optional(string, "0")
         apply_method = optional(string, "immediate")
       }))
-            /* Cannot be Modified (AWS doesnt allow to modify this parameter)
+      /* Cannot be Modified (AWS doesnt allow to modify this parameter)
       innodb_flush_log_at_trx_commit = optional(object({
         value        = optional(string, "0")
         apply_method = optional(string, "immediate")
@@ -615,7 +615,7 @@ variable "family" {
 }
 
 variable "cluster_instance_identifier" {
-  type = string
+  type        = string
   description = "The identifier of the cluster instances."
-  default = "aurora-cluster-instance-demo"
+  default     = "aurora-cluster-instance-demo"
 }
