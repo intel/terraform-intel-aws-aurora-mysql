@@ -48,14 +48,14 @@ variable "db_parameters" {
       collation_server = optional(object({
         value        = optional(string, "latin1_swedish_ci")
         apply_method = optional(string, "immediate")
-      }))
-      transaction_isolation = optional(object({
-        value        = optional(string, "REPEATABLE-READ")
-        apply_method = optional(string, "immediate")
-      }))
-      innodb_log_file_size = optional(object({
-        value        = optional(string, 1024 * 1024 * 1024)
-        apply_method = optional(string, "pending-reboot")
+      # }))
+      # transaction_isolation = optional(object({
+      #   value        = optional(string, "REPEATABLE-READ")
+      #   apply_method = optional(string, "immediate")
+      # }))
+      # innodb_log_file_size = optional(object({
+      #   value        = optional(string, 1024 * 1024 * 1024)
+      #   apply_method = optional(string, "pending-reboot")
       }))
       innodb_open_files = optional(object({
         value        = optional(string, "4000")
@@ -64,22 +64,22 @@ variable "db_parameters" {
       innodb_file_per_table = optional(object({
         value        = optional(string, "1")
         apply_method = optional(string, "pending-reboot")
-      }))
-      innodb_buffer_pool_instances = optional(object({
-        value        = optional(string, "16")
-        apply_method = optional(string, "pending-reboot")
+      # }))
+      # innodb_buffer_pool_instances = optional(object({
+      #   value        = optional(string, "16")
+      #   apply_method = optional(string, "pending-reboot")
       }))
       innodb_buffer_pool_size = optional(object({
         value        = optional(string, "64424509440") # 60 Gigabytes #Calculator https://convertlive.com/u/convert/gigabytes/to/bytes
         apply_method = optional(string, "pending-reboot")
-      }))
-      innodb_log_buffer_size = optional(object({
-        value        = optional(string, "67108864")
-        apply_method = optional(string, "pending-reboot")
-      }))
-      innodb_thread_concurrency = optional(object({
-        value        = optional(string, "0")
-        apply_method = optional(string, "immediate")
+      # }))
+      # innodb_log_buffer_size = optional(object({
+      #   value        = optional(string, "67108864")
+      #   apply_method = optional(string, "pending-reboot")
+      # }))
+      # innodb_thread_concurrency = optional(object({
+      #   value        = optional(string, "0")
+      #   apply_method = optional(string, "immediate")
       }))
       join_buffer_size = optional(object({
         value        = optional(string, 32 * 1024)
@@ -108,10 +108,10 @@ variable "db_parameters" {
       innodb_lru_scan_depth = optional(object({
         value        = optional(string, "9000")
         apply_method = optional(string, "immediate")
-      }))
-      innodb_read_io_threads = optional(object({
-        value        = optional(string, "16")
-        apply_method = optional(string, "pending-reboot")
+      # }))
+      # innodb_read_io_threads = optional(object({
+      #   value        = optional(string, "16")
+      #   apply_method = optional(string, "pending-reboot")
       }))
       innodb_purge_threads = optional(object({
         value        = optional(string, "4")
@@ -136,7 +136,7 @@ variable "db_parameters" {
       default_password_lifetime      = {}
       innodb_adaptive_flushing       = {}
       innodb_adaptive_hash_index     = {}
-      innodb_buffer_pool_instances   = {}
+      #innodb_buffer_pool_instances   = {}
       innodb_buffer_pool_size        = {}
       innodb_change_buffering        = {}
       innodb_checksum_algorithm      = {}
@@ -144,7 +144,7 @@ variable "db_parameters" {
       innodb_flush_neighbors         = {}
       innodb_io_capacity             = {}
       innodb_io_capacity_max         = {}
-      innodb_log_buffer_size         = {}
+      #innodb_log_buffer_size         = {}
       innodb_log_file_size           = {}
       innodb_lru_scan_depth          = {}
       innodb_max_dirty_pages_pct     = {}
@@ -154,10 +154,10 @@ variable "db_parameters" {
       innodb_open_files              = {}
       innodb_page_cleaners           = {}
       innodb_purge_threads           = {}
-      innodb_read_io_threads         = {}
+      #innodb_read_io_threads         = {}
       innodb_spin_wait_delay         = {}
       innodb_stats_persistent        = {}
-      innodb_thread_concurrency      = {}
+      #innodb_thread_concurrency      = {}
       innodb_undo_log_truncate       = {}
       innodb_use_native_aio          = {}
       innodb_write_io_threads        = {}
@@ -168,7 +168,7 @@ variable "db_parameters" {
       sort_buffer_size               = {}
       table_open_cache               = {}
       table_open_cache_instances     = {}
-      transaction_isolation          = {}
+      #transaction_isolation          = {}
       //innodb_flush_log_at_trx_commit = {}  Cannot be modified
     }
   }
@@ -234,7 +234,7 @@ variable "db_parameter_group_name" {
 variable "db_parameter_group_family" {
   description = "Family identifier for the RDS database parameter group."
   type        = string
-  default     = "mysql8.0"
+  default     = "aurora-mysql5.7"
 }
 
 variable "db_port" {
