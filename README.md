@@ -133,7 +133,7 @@ terraform apply
 
 ## Modules
 
-No modules
+No modules.
 
 ## Resources
 
