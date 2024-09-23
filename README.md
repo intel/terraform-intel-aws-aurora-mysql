@@ -11,8 +11,6 @@ This code creates an Amazon Aurora instance and RDS cluster for MySQL. The insta
 As you configure your application's environment, choose the configurations for your infrastructure that matches your application's requirements.
 The MySQL Optimizations were based off [Intel Xeon Tuning Guide](<https://www.intel.com/content/www/us/en/developer/articles/guide/open-source-database-tuning-guide-on-xeon-systems.html>)
 
-
-
 ## AWS Aurora Performance Data 
 
 <center>
