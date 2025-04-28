@@ -15,7 +15,6 @@ As you configure your application's environment, choose the configurations for y
 The MySQL Optimizations were based off [Intel Xeon Tunning guides](<https://www.intel.com/content/www/us/en/developer/articles/guide/open-source-database-tuning-guide-on-xeon-systems.html>)
 
 ## Usage
-# add a comment
 
 
 By default, you will only have to pass the following variables
