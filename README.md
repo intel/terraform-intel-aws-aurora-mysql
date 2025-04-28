@@ -4,7 +4,7 @@
 </p>
 
 # Intel® Optimized Cloud Modules for Terraform
-© Copyright 2024, Intel Corporation
+© Copyright 2025, Intel Corporation
 
 ## AWS Aurora MySQL Module
 This code creates an Amazon Aurora instance and RDS cluster for MySQL. The instance is created on an Intel Icelake instance R6i.large by default. The instance is pre-configured with parameters within the database parameter group that is optimized for Intel architecture. The goal of this module is to get you started with a database configured to run best on Intel architecture.
