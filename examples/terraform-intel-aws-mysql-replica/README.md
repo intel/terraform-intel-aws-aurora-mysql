@@ -4,7 +4,7 @@
 
 # Intel® Optimized Cloud Modules for Terraform
 
-© Copyright 2024, Intel Corporation
+© Copyright 2025, Intel Corporation
 
 ## AWS Aurora MySQL Module - Read Replica Example
 
@@ -17,10 +17,11 @@ The MySQL Optimizations were based off [Intel Xeon Tunning guides](<https://www.
 ## Usage
 
 
-
 By default, you will only have to pass the following variables
 ```hcl
 db_password
+subnet_id
+vpc_id
 ```
 
 variables.tf
